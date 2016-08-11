@@ -6,4 +6,8 @@ class Product < ApplicationRecord
     with: %r{\.(gif|jpg|png)\Z}i,
     message:  'Must be an image'
   }
+
+  def self.latest
+    Product.order(:updated_at).last
+  end
 end
